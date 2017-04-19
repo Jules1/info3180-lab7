@@ -10,7 +10,7 @@ from flask import render_template, request, redirect, url_for, jsonify
 from bs4 import BeautifulSoup
 import requests
 import urlparse
-import image-getter
+import imagegetter
 
 ###
 # Routing for your application.
@@ -21,10 +21,10 @@ def home():
     """Render website's home page."""
     return render_template('home.html')
 
-@app.route('api/thumbnails', methods=['GET', 'POST'])
+@app.route('/api/thumbnails', methods=['GET', 'POST'])
 def thumbnails():
     if request.method == 'POST':
-        get_url = image-getter.listing()
+        get_url = imagegetter.listing()
         null = None
         thumbLinks ={
         'error': null,
@@ -35,7 +35,7 @@ def thumbnails():
 
 @app.route('/thumbnails/view')
 def thumbnailView():
-    thumbs = image-getter.listing()
+    thumbs = imagegetter.listing()
     return render_template('thumbnailView.html', thumbs = thumbs)
 
 ###

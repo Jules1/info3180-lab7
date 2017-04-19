@@ -5,7 +5,7 @@ import urlparse
 url = "https://www.walmart.com/ip/54649026"
 result = requests.get(url)
 soup = BeautifulSoup(result.text, "html.parser")
-imgList =[]
+imgList = []
 
 # This will look for a meta tag with the og:image property
 og_image = (soup.find('meta', property='og:image') or
@@ -19,10 +19,10 @@ if thumbnail_spec and thumbnail_spec['href']:
     imgList.append(thumbnail_spec['href'])
 
 
-image = """%s"""
+image = "%s"
 for img in soup.findAll("img", src=True):
    imgList.append(image % urlparse.urljoin(url, img["src"]))
-print imgList
+#print imgList
 
 def listing():
 	return imgList

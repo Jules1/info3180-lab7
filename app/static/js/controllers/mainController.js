@@ -1,6 +1,5 @@
-app.controller('thumbController', function($scope, $http)){
-	
+app.controller('thumbController', function($scope, $http){
 	$http.post("/api/thumbnails").then(function(response){
-		$scope.link = response.data.thumbnails;
+		$scope.links = response.data.thumbnails;
 	})
 });

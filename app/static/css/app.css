@@ -5,3 +5,10 @@ body {
 .nav-tabs {
     margin-bottom: 15px;
 }
+
+.float{
+    float: left;
+    border: 1px solid black;
+    margin: 6px;
+    list-style: none;
+}
